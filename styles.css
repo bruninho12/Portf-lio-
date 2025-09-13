@@ -277,6 +277,10 @@ ul li {
   transition: var(--transition);
   border: 1px solid var(--card-border);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; /* Para garantir que todos os cards tenham a mesma altura */
 }
 
 .service-card:hover {
@@ -289,10 +293,19 @@ ul li {
   font-size: 3rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
+  display: block;
 }
 
 .service-card h3 {
   margin-bottom: 1rem;
+  line-height: 1.3;
+  font-size: 1.4rem;
+  /* Removendo white-space: nowrap para permitir quebra de linha adequada */
+  white-space: normal;
+  min-height: 3rem; /* Garantir altura consistente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Projects Section */
