@@ -1,12 +1,12 @@
-# J&B COSTA - Portfolio Corporativo
+# Bruno Souza - Portfolio Pessoal
 
-![J&B COSTA Logo](img/site-advogado.png)
+![Projeto Portfolio](img/site-advogado.png)
 
-Este é o portfólio corporativo da J&B COSTA, uma empresa especializada em soluções digitais, desenvolvimento web, design e marketing digital. O site apresenta informações sobre a empresa, seus serviços, projetos recentes e formas de contato.
+Este é meu portfólio pessoal, onde apresento minhas habilidades em desenvolvimento web, projetos recentes e formas de contato. O site foi desenvolvido com foco em design responsivo, performance e usabilidade.
 
 ## 🚀 Demonstração
 
-O site está disponível em: [https://jebcosta.com.br](https://jebcosta.com.br)
+O site está disponível em: [https://bruninho12.github.io/portfolio](https://bruninho12.github.io/portfolio)
 
 ## ✨ Funcionalidades
 
@@ -15,7 +15,7 @@ O site está disponível em: [https://jebcosta.com.br](https://jebcosta.com.br)
 - **Modo Escuro/Claro**: Alternância entre temas para melhor experiência do usuário
 - **Animações de Scroll AOS**: Efeitos visuais suaves durante a navegação
 - **Navegação Intuitiva**: Menu de navegação claro com destaque para a seção atual
-- **Seções Bem Estruturadas**: Sobre nós, Serviços, Projetos e Contato
+- **Seções Bem Estruturadas**: Sobre Mim, Habilidades, Projetos e Contato
 - **Formulário de Contato**: Com validação de dados e feedback visual
 - **Botão "Voltar ao Topo"**: Para facilitar a navegação em páginas longas
 - **Otimização SEO Básica**: Meta tags e estrutura semântica
@@ -55,20 +55,20 @@ O site está disponível em: [https://jebcosta.com.br](https://jebcosta.com.br)
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/portfolio-jebcosta.git
+   git clone https://github.com/bruninho12/Portf-lio-.git
    ```
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd portfolio-jebcosta
+   cd Portf-lio-
    ```
 
 3. Abra o arquivo `index.html` em seu navegador ou utilize uma extensão como Live Server no VS Code.
 
 ## ⚙️ Personalização
 
-- Atualize informações da empresa no `index.html`
+- Atualize informações pessoais no `index.html`
 - Modifique cores e estilos através das variáveis CSS em `styles.css`:
   ```css
   :root {
@@ -116,10 +116,10 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](
 
 ## 📬 Contato
 
-- **Email**: contato@jebcosta.com.br
-- **Website**: [jebcosta.com.br](https://jebcosta.com.br)
-- **LinkedIn**: [linkedin.com/company/jebcosta](https://linkedin.com/company/jebcosta)
+- **Email**: bruno.souza@email.com
+- **GitHub**: [github.com/bruninho12](https://github.com/bruninho12)
+- **LinkedIn**: [linkedin.com/in/bruno-souza](https://linkedin.com/in/bruno-souza)
 
 ---
 
-© 2025 J&B COSTA - Soluções Digitais | Todos os direitos reservados
+© 2025 Bruno Souza | Desenvolvedor Web | Todos os direitos reservados
