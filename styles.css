@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -27,6 +30,9 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   transition: background 0.5s, color 0.5s;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body.dark {
@@ -1299,12 +1305,62 @@ footer {
   line-height: 1.6;
 }
 
-/* Responsividade melhorada */
+/* ============================================ */
+/* RESPONSIVIDADE OTIMIZADA PARA MOBILE */
+/* ============================================ */
+
+/* Tablets e telas médias */
+@media (max-width: 992px) {
+  header {
+    padding: 2rem 1.5rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem !important;
+  }
+
+  .hero-benefits {
+    gap: 1.5rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  section {
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+}
+
+/* Smartphones e telas pequenas */
 @media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* Header responsivo */
+  header {
+    padding: 1.5rem 1rem;
+  }
+
   .header-top {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .header-badges {
@@ -1313,70 +1369,198 @@ footer {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .badge-99freelas,
+  .badge-response {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+    text-align: center;
+    padding: 0 1rem;
   }
 
   .hero-benefits {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    padding: 0 1rem;
   }
 
   .benefit-item {
     width: 100%;
+    max-width: 350px;
     justify-content: center;
+    padding: 1rem;
+    font-size: 0.9rem;
   }
 
   .hero-cta {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-  }
-
-  .about-intro {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-    padding: 2rem 1.5rem;
-  }
-
-  .profile-img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .intro-text h3 {
-    font-size: 1.8rem;
-  }
-
-  .intro-subtitle {
-    font-size: 1.1rem;
+    padding: 0 1rem;
   }
 
   .btn-primary-large,
   .btn-secondary {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     text-align: center;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
   }
 
+  /* Navegação responsiva */
   nav {
-    gap: 0.5rem;
-    padding: 0.8rem;
+    gap: 0.3rem;
+    padding: 1rem 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   nav a {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
   }
 
+  nav a.nav-cta {
+    order: 1;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 0.5rem;
+  }
+
+  /* Seções principais */
+  section {
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Seção About melhorada */
+  .about-intro {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    margin: 2rem 0 3rem 0;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .intro-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .about-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-values {
+    gap: 1rem;
+  }
+
+  .value-item {
+    min-width: 100%;
+    padding: 1.2rem;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Serviços responsivos */
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+    min-height: auto;
+  }
+
+  .service-features {
+    gap: 0.4rem;
+  }
+
+  .service-features span {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  /* Projetos responsivos */
+  .projects-container .project {
+    flex-direction: column;
+  }
+
+  .project-content {
+    order: 2;
+  }
+
+  .project-image,
+  .project-mobile-images {
+    order: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Orçamento responsivo */
   .budget-options {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 2rem 0;
   }
 
   .budget-option {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.2rem;
   }
 
   .budget-option.featured {
@@ -1384,31 +1568,188 @@ footer {
     margin: 0;
   }
 
+  .budget-header h3 {
+    font-size: 1.4rem;
+  }
+
   .price-value {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .budget-badge {
-    font-size: 0.8rem;
-    padding: 0.5rem 1.2rem;
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
   }
+
+  .budget-features p {
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+  }
+
+  .btn-budget {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Depoimentos responsivos */
   .testimonials-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonial {
+    padding: 1.5rem;
+  }
+
+  .testimonial-content p {
+    font-size: 1rem;
   }
 
   .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 1.2rem 1rem;
+  }
+
+  .stat-item .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Contato responsivo */
+  .contact-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-info {
+    order: 2;
+  }
+
+  .contact-form {
+    order: 1;
+  }
+
+  .contact-guarantee {
+    padding: 1.5rem;
+  }
+
+  /* Footer responsivo */
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Smartphones muito pequenos */
+@media (max-width: 480px) {
+  header {
+    padding: 1rem 0.5rem;
   }
 
   header h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-benefits {
+    padding: 0 0.5rem;
+  }
+
+  .benefit-item {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  nav {
+    padding: 0.8rem 0.3rem;
+  }
+
+  nav a {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  section {
+    padding: 0 0.5rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+
+  .about-intro {
+    padding: 1rem 0.5rem;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .intro-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .intro-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .value-item {
+    padding: 1rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .budget-option {
+    padding: 1.2rem 1rem;
+  }
+
+  .price-value {
+    font-size: 1.8rem;
+  }
+
+  .testimonial {
+    padding: 1.2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 1rem;
+  }
+}
+
+/* Landscape em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    padding: 1rem;
+  }
+
+  .hero-benefits {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .benefit-item {
+    width: auto;
+    min-width: 200px;
   }
 }
