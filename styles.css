@@ -372,6 +372,99 @@ ul li {
   font-weight: 500;
 }
 
+/* Seção de Apresentação com Foto */
+.about-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 3rem 0 4rem 0;
+  padding: 2.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 18, 18, 0.8),
+    rgba(0, 204, 255, 0.05)
+  );
+  border-radius: 20px;
+  border: 1px solid rgba(0, 204, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(0, 204, 255, 0.1),
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.profile-photo {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 204, 255, 0.4);
+}
+
+.profile-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 204, 255, 0.3);
+}
+
+.intro-text {
+  flex: 1;
+  z-index: 1;
+}
+
+.intro-text h3 {
+  font-size: 2.2rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.intro-subtitle {
+  font-size: 1.2rem;
+  color: #bbb;
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* Services Section */
 .services-container {
   display: grid;
@@ -1237,6 +1330,26 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+
+  .about-intro {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .intro-text h3 {
+    font-size: 1.8rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1.1rem;
   }
 
   .btn-primary-large,
