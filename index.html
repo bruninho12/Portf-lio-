@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, shrink-to-fit=no">
         <meta name="format-detection" content="telephone=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
         <!-- SEO Meta Tags -->
@@ -132,12 +132,18 @@
         </header>
 
         <nav>
-            <a href="#sobre">Sobre Mim</a>
-            <a href="#habilidades">Serviços</a>
-            <a href="#projetos">Portfólio</a>
-            <a href="#orcamento">Orçamento</a>
-            <a href="#depoimentos">Avaliações</a>
-            <a href="#contato" class="nav-cta">💬 Contato</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-overlay" id="navOverlay"></div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#sobre">Sobre Mim</a>
+                <a href="#habilidades">Serviços</a>
+                <a href="#projetos">Portfólio</a>
+                <a href="#orcamento">Orçamento</a>
+                <a href="#depoimentos">Avaliações</a>
+                <a href="#contato" class="nav-cta">💬 Contato</a>
+            </div>
         </nav>
 
         <section id="sobre" data-aos="fade-up">

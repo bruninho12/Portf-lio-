@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adiciona classe de ativo ao item de navegação atual com base na rolagem
   const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("nav a");
+  const navigationLinks = document.querySelectorAll("nav a");
 
   function highlightNavOnScroll() {
     const scrollY = window.pageYOffset;
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const sectionId = current.getAttribute("id");
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
+        navigationLinks.forEach((link) => {
           link.classList.remove("active");
           if (link.getAttribute("href") === `#${sectionId}`) {
             link.classList.add("active");
@@ -208,6 +208,72 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", highlightNavOnScroll);
+
+  // Mobile Menu Toggle
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
+  const navOverlay = document.getElementById("navOverlay");
+  const mobileNavLinks = document.querySelectorAll(".nav-menu a");
+
+  function toggleMobileMenu() {
+    const isActive = navMenu.classList.contains("active");
+
+    if (isActive) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    navMenu.classList.add("active");
+    navOverlay.classList.add("active");
+    navToggle.classList.add("active");
+    navToggle.querySelector("i").classList.remove("fa-bars");
+    navToggle.querySelector("i").classList.add("fa-times");
+    document.body.style.overflow = "hidden"; // Prevent scrolling
+  }
+
+  function closeMobileMenu() {
+    navMenu.classList.remove("active");
+    navOverlay.classList.remove("active");
+    navToggle.classList.remove("active");
+    navToggle.querySelector("i").classList.remove("fa-times");
+    navToggle.querySelector("i").classList.add("fa-bars");
+    document.body.style.overflow = ""; // Restore scrolling
+  }
+
+  // Event listeners
+  if (navToggle) {
+    navToggle.addEventListener("click", toggleMobileMenu);
+  }
+
+  if (navOverlay) {
+    navOverlay.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close menu when clicking on nav links
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        closeMobileMenu();
+      }
+    });
+  });
+
+  // Close menu on resize if screen becomes larger
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navMenu.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
 
   // Make showToast globally available
   window.showToast = showToast;

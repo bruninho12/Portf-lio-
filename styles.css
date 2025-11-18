@@ -130,6 +130,33 @@ body {
   }
 }
 
+/* Animação do menu hambúrguer */
+@keyframes slideInRight {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    right: 0;
+  }
+  to {
+    right: -100%;
+  }
+}
+
+.nav-toggle .fas {
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle.active .fas {
+  transform: rotate(90deg);
+}
+
 /* Toast Notifications */
 .toast {
   position: fixed;
@@ -360,6 +387,41 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* Menu hambúrguer para mobile */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 101;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
 
 nav a {
@@ -1494,6 +1556,17 @@ footer {
     margin: 3rem auto;
     padding: 0 1.5rem;
   }
+
+  /* Navegação ainda normal em tablets */
+  nav {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  nav a {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
 }
 
 /* Smartphones e telas pequenas */
@@ -1570,25 +1643,69 @@ footer {
     font-size: 1rem;
   }
 
-  /* Navegação responsiva */
+  /* Navegação mobile com hambúrguer */
   nav {
-    gap: 0.3rem;
-    padding: 1rem 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    position: relative;
+    padding: 1rem;
+    min-height: 60px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, #004488, #003366);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-overlay.active {
+    display: block;
   }
 
   nav a {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.85rem;
-    border-radius: 20px;
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  nav a:hover {
+    background: rgba(0, 204, 255, 0.15);
+    transform: none;
+    padding-left: 2.5rem;
   }
 
   nav a.nav-cta {
-    order: 1;
-    width: 100%;
-    max-width: 200px;
-    margin-top: 0.5rem;
+    margin: 1rem;
+    border-radius: 25px;
+    border-bottom: none;
+    background: linear-gradient(45deg, #00ccff, #0099cc);
+    text-align: center;
+    font-weight: 600;
+  }
+
+  nav a.nav-cta:hover {
+    padding-left: 2rem;
+    background: linear-gradient(45deg, #0099cc, #007aa3);
   }
 
   /* Seções principais */
