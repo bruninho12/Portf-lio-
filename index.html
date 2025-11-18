@@ -8,6 +8,18 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+        <!-- Security Headers -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+                       script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com;
+                       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+                       font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                       img-src 'self' data: https:;
+                       connect-src 'self' https://formspree.io https://netlify.com https://formsubmit.co;">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+        <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
         <!-- SEO Meta Tags -->
         <title>Bruno Souza - Desenvolvedor Web Fullstack | Criação de Sites Profissionais</title>
         <meta name="description"
@@ -146,22 +158,22 @@
             </div>
         </nav>
 
-        <section id="sobre" data-aos="fade-up">
-            <h2>Por que escolher meus serviços?</h2>
+        <section id="sobre" class="watermark" data-aos="fade-up">
+            <h2 class="no-select">Por que escolher meus serviços?</h2>
 
             <!-- Seção com foto pessoal -->
             <div class="about-intro" data-aos="fade-up" data-aos-delay="100">
-                <div class="profile-photo">
+                <div class="profile-photo image-protection">
                     <img src="data:image/svg+xml,%3Csvg width='180' height='180' fill='%23333'%3E%3Ctext x='90' y='90' text-anchor='middle' fill='%2300ccff'%3ECarregando...%3C/text%3E%3C/svg%3E"
                         data-src="./img/bruno-profile.jpg" alt="Bruno Souza - Desenvolvedor Web"
-                        class="profile-img lazy-load">
+                        class="profile-img lazy-load protected-image">
                     <div class="profile-badge">
                         <i class="fas fa-code"></i>
                         <span>Desenvolvedor</span>
                     </div>
                 </div>
                 <div class="intro-text">
-                    <h3>Olá! Eu sou o Bruno 👋</h3>
+                    <h3 class="no-select">Olá! Eu sou o Bruno 👋</h3>
                     <p class="intro-subtitle">Desenvolvedor Web Fullstack apaixonado por criar soluções digitais que
                         transformam negócios</p>
                 </div>
@@ -263,12 +275,12 @@
             </div>
         </section>
 
-        <section id="projetos" data-aos="fade-up">
-            <h2>Meus Projetos</h2>
+        <section id="projetos" class="watermark" data-aos="fade-up">
+            <h2 class="no-select">Meus Projetos</h2>
             <div class="projects-container">
                 <div class="project" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-content">
-                        <h3>Website - Italo Passos Advocacia</h3>
+                        <h3 class="no-select">Website - Italo Passos Advocacia</h3>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
@@ -289,8 +301,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="project-image">
-                        <img class="img-project lazy-load"
+                    <div class="project-image image-protection">
+                        <img class="img-project lazy-load protected-image"
                             src="data:image/svg+xml,%3Csvg width='500' height='300' fill='%23333'%3E%3Ctext x='250' y='150' text-anchor='middle' fill='%2300ccff'%3ECarregando projeto...%3C/text%3E%3C/svg%3E"
                             data-src="./img/site-advogado.png" alt="Website do Italo Passos, advogado" />
                     </div>
@@ -298,7 +310,7 @@
 
                 <div class="project" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-content">
-                        <h3>Website - Proendo Odontologia & Estética</h3>
+                        <h3 class="no-select">Website - Proendo Odontologia & Estética</h3>
                         <div class="project-tags">
                             <span class="tag">WordPress</span>
                             <span class="tag">SEO</span>
@@ -562,12 +574,17 @@
                     data-netlify-honeypot="bot-field" name="contact">
                     <!-- Honeypot field for spam protection -->
                     <input type="hidden" name="bot-field">
+                    <!-- Additional spam protection -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <!-- Hidden field for form name -->
                     <input type="hidden" name="form-name" value="contact">
                     <!-- FormSubmit configuration -->
-                    <input type="hidden" name="_subject" value="Nova solicitação de orçamento - Portfolio">
+                    <input type="hidden" name="_subject" value="Nova solicitação de orçamento - Portfolio Bruno Souza">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://bruninho12.github.io/Portf-lio-/">
+                    <!-- Security timestamp -->
+                    <input type="hidden" name="_timestamp" id="form-timestamp">
 
                     <h3>📝 Solicite seu orçamento gratuito</h3>
 
@@ -666,6 +683,18 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Bruno Souza | Desenvolvedor Web | Todos os direitos reservados</p>
+
+                <div class="footer-copyright">
+                    <p><strong><i class="fas fa-shield-alt"></i> AVISO DE DIREITOS AUTORAIS</strong></p>
+                    <p>Este portfólio e todo seu conteúdo (incluindo, mas não limitado a: design, código, imagens,
+                        textos e conceitos) são propriedade exclusiva de <strong>Bruno Souza</strong> e estão protegidos
+                        por leis de direitos autorais.</p>
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Cópia, reprodução ou uso não
+                            autorizado</strong> deste conteúdo pode resultar em ação legal. Para licenciamento ou
+                        permissões, entre em contato: <strong>souzacostabruno009@gmail.com</strong></p>
+                    <p><i class="fas fa-code"></i> Desenvolvido com <i class="fas fa-heart" style="color: #ff6b35;"></i>
+                        por Bruno Souza</p>
+                </div>
             </div>
         </footer>
 

@@ -1,12 +1,27 @@
-# Bruno Souza - Portfolio Pessoal
+# 🛡️ Bruno Souza - Portfolio Pessoal (PROTEGIDO)
 
-![Projeto Portfolio](img/site-advogado.png)
+![Portfolio Showcase](https://img.shields.io/badge/Status-PROPRIETARY-red)
+![Copyright](https://img.shields.io/badge/Copyright-2025%20Bruno%20Souza-blue)
+![License](https://img.shields.io/badge/License-ALL%20RIGHTS%20RESERVED-important)
 
-Este é meu portfólio pessoal, onde apresento minhas habilidades em desenvolvimento web, projetos recentes e formas de contato. O site foi desenvolvido com foco em design responsivo, performance e usabilidade.
+## ⚠️ **AVISO LEGAL IMPORTANTE - LEIA ANTES DE CONTINUAR**
 
-## 🚀 Demonstração
+### 🚨 **ESTE REPOSITÓRIO É PROTEGIDO POR DIREITOS AUTORAIS**
 
-O site está disponível em: [https://bruninho12.github.io/portfolio](https://bruninho12.github.io/portfolio)
+Este portfólio e **TODO SEU CONTEÚDO** são **PROPRIEDADE EXCLUSIVA** de **Bruno Souza** e estão protegidos por leis de direitos autorais.
+
+### ❌ **EXPRESSAMENTE PROIBIDO:**
+
+- ❌ **Clonar** este repositório para uso pessoal ou comercial
+- ❌ **Copiar** qualquer parte do código, design ou conteúdo
+- ❌ **Fazer fork** para projetos próprios
+- ❌ **Usar como base** ou inspiração para portfólios
+
+### ⚖️ **VIOLAÇÕES PODEM RESULTAR EM AÇÃO LEGAL**
+
+## 🌐 **Demonstração Oficial**
+
+**Acesso autorizado:** [https://bruninho12.github.io/Portf-lio-/](https://bruninho12.github.io/Portf-lio-/)
 
 ## ✨ Funcionalidades
 

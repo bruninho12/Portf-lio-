@@ -1,4 +1,153 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ============================================
+  // PROTEÇÕES ANTI-CLONAGEM
+  // ============================================
+
+  // Desabilita menu de contexto (botão direito)
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    showToast("⚠️ Conteúdo protegido por direitos autorais", "error");
+    return false;
+  });
+
+  // Desabilita teclas de desenvolvedor
+  document.addEventListener("keydown", function (e) {
+    // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+    if (
+      e.keyCode === 123 ||
+      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+      (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))
+    ) {
+      e.preventDefault();
+      showToast("🔒 Função desabilitada por segurança", "error");
+      return false;
+    }
+
+    // Ctrl+A (selecionar tudo)
+    if (e.ctrlKey && e.keyCode === 65) {
+      e.preventDefault();
+      showToast("📝 Seleção total desabilitada", "error");
+      return false;
+    }
+
+    // Ctrl+C, Ctrl+V, Ctrl+X em áreas protegidas
+    if (
+      e.ctrlKey &&
+      (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88)
+    ) {
+      const target = e.target;
+      if (
+        target.classList.contains("no-select") ||
+        target.closest(".no-select")
+      ) {
+        e.preventDefault();
+        showToast("⚠️ Cópia não permitida nesta seção", "error");
+        return false;
+      }
+    }
+  });
+
+  // Detecta tentativas de scraping/automação
+  let rapidClicks = 0;
+  let lastClickTime = 0;
+
+  document.addEventListener("click", function () {
+    const now = Date.now();
+    if (now - lastClickTime < 100) {
+      rapidClicks++;
+      if (rapidClicks > 10) {
+        showToast("🤖 Comportamento suspeito detectado", "error");
+        // Log para analytics (opcional)
+        console.warn("Possível bot detectado");
+      }
+    } else {
+      rapidClicks = 0;
+    }
+    lastClickTime = now;
+  });
+
+  // Protege contra seleção de texto em dispositivos mobile
+  document.addEventListener("selectstart", function (e) {
+    if (
+      e.target.classList.contains("no-select") ||
+      e.target.closest(".no-select")
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Adiciona proteção a imagens quando carregadas
+  document.querySelectorAll("img").forEach((img) => {
+    img.addEventListener("dragstart", function (e) {
+      e.preventDefault();
+      showToast("🖼️ Imagem protegida contra download", "error");
+      return false;
+    });
+
+    // Adiciona classe de proteção
+    img.classList.add("protected-image");
+  });
+
+  // Detecta DevTools aberto (método avançado)
+  let devtools = { open: false, orientation: null };
+  const threshold = 160;
+
+  setInterval(() => {
+    if (
+      window.outerHeight - window.innerHeight > threshold ||
+      window.outerWidth - window.innerWidth > threshold
+    ) {
+      if (!devtools.open) {
+        devtools.open = true;
+        console.clear();
+        console.warn(
+          "🔒 AVISO: Este conteúdo está protegido por direitos autorais."
+        );
+        console.warn(
+          "📧 Para licenciamento, entre em contato: souzacostabruno009@gmail.com"
+        );
+        showToast("⚠️ DevTools detectado - Conteúdo protegido", "error");
+      }
+    } else {
+      devtools.open = false;
+    }
+  }, 500);
+
+  // Adiciona aviso de copyright no console
+  console.log(
+    "%c🛡️ PORTFÓLIO PROTEGIDO",
+    "color: #00ccff; font-size: 20px; font-weight: bold;"
+  );
+  console.log(
+    "%c© 2025 Bruno Souza - Todos os direitos reservados",
+    "color: #ff6b35; font-size: 14px;"
+  );
+  console.log(
+    "%c📧 Para licenciamento: souzacostabruno009@gmail.com",
+    "color: #4caf50; font-size: 12px;"
+  );
+  console.log(
+    "%c⚠️  Cópia não autorizada pode resultar em ação legal",
+    "color: #f44336; font-size: 12px;"
+  );
+
+  // Security: Clear sensitive localStorage on page unload
+  window.addEventListener("beforeunload", function () {
+    // Keep only non-sensitive data
+    const allowedKeys = ["lastFormSubmission"];
+    const keysToRemove = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && !allowedKeys.includes(key)) {
+        keysToRemove.push(key);
+      }
+    }
+
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+  });
+
   // Preloader
   const preloader = document.getElementById("preloader");
 
@@ -134,17 +283,52 @@ document.addEventListener("DOMContentLoaded", () => {
   // Validação e envio do formulário
   const form = document.querySelector("form");
   if (form) {
+    // Add timestamp for security
+    const timestampField = document.getElementById("form-timestamp");
+    if (timestampField) {
+      timestampField.value = new Date().toISOString();
+    }
+
     form.addEventListener("submit", function (e) {
+      // Security validation
+      const honeyPot = document.querySelector('input[name="_honey"]');
+      if (honeyPot && honeyPot.value !== "") {
+        e.preventDefault();
+        showToast("Erro de segurança detectado.", "error");
+        return false;
+      }
+
+      // Rate limiting - prevent rapid submissions
+      const lastSubmission = localStorage.getItem("lastFormSubmission");
+      const now = Date.now();
+      if (lastSubmission && now - parseInt(lastSubmission) < 30000) {
+        // 30 seconds
+        e.preventDefault();
+        showToast(
+          "Por favor, aguarde 30 segundos antes de enviar novamente.",
+          "error"
+        );
+        return false;
+      }
+
       // Validação básica
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const email = document.getElementById("email");
       const nome = document.getElementById("nome");
-      const projeto = document.getElementById("projeto");
+      const projeto = document.getElementById("tipo-projeto");
 
       // Verifica campos obrigatórios
       if (!nome.value.trim()) {
         e.preventDefault();
         showToast("Por favor, preencha seu nome.", "error");
+        nome.focus();
+        return false;
+      }
+
+      // Basic input sanitization
+      if (nome.value.trim().length < 2 || nome.value.trim().length > 100) {
+        e.preventDefault();
+        showToast("Nome deve ter entre 2 e 100 caracteres.", "error");
         nome.focus();
         return false;
       }
@@ -158,10 +342,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!projeto.value.trim()) {
         e.preventDefault();
-        showToast("Por favor, descreva seu projeto.", "error");
+        showToast("Por favor, selecione o tipo de projeto.", "error");
         projeto.focus();
         return false;
       }
+
+      // Store submission time
+      localStorage.setItem("lastFormSubmission", now.toString());
 
       // Se chegou aqui, está válido
       showToast("📧 Enviando mensagem...", "info");

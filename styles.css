@@ -996,6 +996,29 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-copyright {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 204, 255, 0.1),
+    rgba(0, 153, 204, 0.05)
+  );
+  border: 1px solid rgba(0, 204, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-copyright strong {
+  color: var(--primary-color);
+}
+
+.footer-copyright .fas {
+  color: #ff6b35;
+  margin: 0 0.2rem;
+}
+
 /* Back to top button */
 #back-to-top {
   position: fixed;
@@ -1115,6 +1138,75 @@ footer {
   .project {
     padding: 1.5rem;
   }
+}
+
+/* ============================================ */
+/* PROTEÇÕES ANTI-CLONAGEM */
+/* ============================================ */
+
+/* Desabilita seleção de texto em áreas sensíveis */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Protege imagens contra download */
+.protected-image {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+/* Overlay de proteção invisível sobre imagens */
+.image-protection {
+  position: relative;
+  display: inline-block;
+}
+
+.image-protection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Watermark discreto */
+.watermark {
+  position: relative;
+}
+
+.watermark::before {
+  content: "Bruno Souza © 2025";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Protege texto de contato */
+.contact-protection {
+  position: relative;
+}
+
+.contact-protection::selection {
+  background: transparent;
 }
 
 /* ============================================ */
