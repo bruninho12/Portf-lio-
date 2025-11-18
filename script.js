@@ -1,43 +1,100 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Preloader
+  const preloader = document.getElementById("preloader");
+
+  // Hide preloader after page loads
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+      // Remove from DOM after animation
+      setTimeout(() => {
+        if (preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
+      }, 500);
+    }, 1000); // Show for at least 1 second
+  });
+
+  // Lazy Loading Implementation
+  const lazyImages = document.querySelectorAll(".lazy-load");
+
+  if ("IntersectionObserver" in window) {
+    const lazyImageObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const lazyImage = entry.target;
+            lazyImage.classList.add("loading");
+
+            // Create a new image to preload
+            const img = new Image();
+            img.onload = () => {
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove("loading");
+              lazyImage.classList.add("loaded");
+              lazyImageObserver.unobserve(lazyImage);
+            };
+            img.src = lazyImage.dataset.src;
+          }
+        });
+      },
+      {
+        rootMargin: "50px 0px", // Start loading 50px before entering viewport
+      }
+    );
+
+    lazyImages.forEach((lazyImage) => {
+      lazyImageObserver.observe(lazyImage);
+    });
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    lazyImages.forEach((lazyImage) => {
+      lazyImage.src = lazyImage.dataset.src;
+      lazyImage.classList.add("loaded");
+    });
+  }
+
+  // Toast Notification System
+  function showToast(message, type = "success") {
+    // Remove existing toast
+    const existingToast = document.querySelector(".toast");
+    if (existingToast) {
+      existingToast.remove();
+    }
+
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+      <div class="toast-content">
+        <i class="fas fa-${
+          type === "success"
+            ? "check-circle"
+            : type === "error"
+            ? "exclamation-circle"
+            : "info-circle"
+        }"></i>
+        <span>${message}</span>
+      </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Show toast
+    setTimeout(() => toast.classList.add("show"), 100);
+
+    // Hide toast after 4 seconds
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 4000);
+  }
+
   // Inicializa animações AOS
   AOS.init({
     duration: 800,
     easing: "ease",
     once: true,
     offset: 100,
-  });
-
-  // Dark mode toggle
-  const toggle = document.getElementById("dark-mode-toggle");
-  const icon = document.getElementById("dark-mode-icon");
-
-  // Verifica preferência salva no localStorage
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-    if (icon) {
-      icon.classList.remove("fa-moon");
-      icon.classList.add("fa-sun");
-      toggle?.setAttribute("aria-label", "Alternar modo claro");
-      toggle?.setAttribute("title", "Alternar modo claro");
-    }
-  }
-
-  toggle?.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    if (document.body.classList.contains("dark")) {
-      icon.classList.remove("fa-moon");
-      icon.classList.add("fa-sun");
-      toggle.setAttribute("aria-label", "Alternar modo claro");
-      toggle.setAttribute("title", "Alternar modo claro");
-      localStorage.setItem("theme", "dark");
-    } else {
-      icon.classList.remove("fa-sun");
-      icon.classList.add("fa-moon");
-      toggle.setAttribute("aria-label", "Alternar modo escuro");
-      toggle.setAttribute("title", "Alternar modo escuro");
-      localStorage.setItem("theme", "light");
-    }
   });
 
   // Navegação suave para todos os links internos
@@ -78,44 +135,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   if (form) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Validação avançada
-      let valid = true;
+      // Validação básica
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const email = document.getElementById("email");
+      const nome = document.getElementById("nome");
+      const projeto = document.getElementById("projeto");
 
-      if (email && !emailRegex.test(email.value)) {
-        alert("Por favor, insira um endereço de e-mail válido.");
+      // Verifica campos obrigatórios
+      if (!nome.value.trim()) {
+        e.preventDefault();
+        showToast("Por favor, preencha seu nome.", "error");
+        nome.focus();
+        return false;
+      }
+
+      if (!email.value.trim() || !emailRegex.test(email.value)) {
+        e.preventDefault();
+        showToast("Por favor, insira um e-mail válido.", "error");
         email.focus();
-        valid = false;
-        return;
+        return false;
       }
 
-      if (!form.checkValidity()) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
-        valid = false;
-        return;
+      if (!projeto.value.trim()) {
+        e.preventDefault();
+        showToast("Por favor, descreva seu projeto.", "error");
+        projeto.focus();
+        return false;
       }
 
-      if (valid) {
-        // Simula o envio do formulário com feedback visual
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+      // Se chegou aqui, está válido
+      showToast("📧 Enviando mensagem...", "info");
 
-        submitBtn.disabled = true;
-        submitBtn.innerHTML =
-          '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      // Mostra loading no botão
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        const btnText = submitBtn.querySelector(".btn-text");
+        const btnLoading = submitBtn.querySelector(".btn-loading");
 
-        setTimeout(() => {
-          alert(
-            "Mensagem enviada com sucesso! Entraremos em contato em breve."
-          );
-          form.reset();
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        }, 1500);
+        if (btnText && btnLoading) {
+          submitBtn.disabled = true;
+          btnText.style.display = "none";
+          btnLoading.style.display = "inline-block";
+        }
       }
+
+      // Permite o envio do formulário
+      return true;
     });
   }
 
@@ -143,4 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", highlightNavOnScroll);
+
+  // Make showToast globally available
+  window.showToast = showToast;
 });
