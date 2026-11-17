@@ -1,709 +1,569 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bruno Souza | Projetos e desenvolvimento</title>
+    <meta
+      name="description"
+      content="Sou Bruno Souza, estudante de ADS na UNIPAR. Conheça meus projetos, minha experiência na operação e meu caminho para trabalhar com tecnologia."
+    />
+    <meta name="theme-color" content="#071426" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Bruno Souza | Projetos e desenvolvimento" />
+    <meta
+      property="og:description"
+      content="Projetos que nasceram da rotina de trabalho e da vontade de aprender programação. Conheça meu portfólio."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, shrink-to-fit=no">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Bruno Souza, início">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span>bruno<span class="brand-muted">.souza</span></span>
+      </a>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#aprendizado">Aprendizado</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a class="nav-contact" href="#contato">
+          Contato <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </header>
 
-        <!-- Security Headers -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-                       script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com;
-                       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
-                       font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-                       img-src 'self' data: https:;
-                       connect-src 'self' https://formspree.io https://netlify.com https://formsubmit.co;">
-        <meta http-equiv="X-Content-Type-Options" content="nosniff">
-        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-        <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-
-        <!-- SEO Meta Tags -->
-        <title>Bruno Souza - Desenvolvedor Web Fullstack | Criação de Sites Profissionais</title>
-        <meta name="description"
-            content="Bruno Souza - Desenvolvedor Web Fullstack especializado em criação de sites, aplicações web e soluções digitais. +100 projetos entregues. Orçamento gratuito em 2h.">
-        <meta name="keywords"
-            content="desenvolvedor web, criação de sites, desenvolvedor fullstack, e-commerce, landing pages, Bruno Souza, desenvolvimento web, sites responsivos, Cascavel, Paraná">
-        <meta name="author" content="Bruno Souza">
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-        <meta name="language" content="pt-BR">
-        <meta name="rating" content="general">
-        <meta name="distribution" content="global">
-        <meta name="revisit-after" content="7 days">
-
-        <!-- Canonical URL -->
-        <link rel="canonical" href="https://bruninho12.github.io/Portf-lio-/">
-
-        <!-- Alternate Language -->
-        <link rel="alternate" hreflang="pt-br" href="https://bruninho12.github.io/Portf-lio-/">
-
-        <!-- DNS Prefetch for better performance -->
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-        <link rel="dns-prefetch" href="//unpkg.com">
-
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Bruno Souza - Desenvolvedor Web Fullstack">
-        <meta property="og:description"
-            content="Desenvolvedor Web especializado em sites profissionais, e-commerce e aplicações web. +100 projetos entregues com garantia de satisfação.">
-        <meta property="og:url" content="https://bruninho12.github.io/Portf-lio-/">
-        <meta property="og:site_name" content="Bruno Souza Portfolio">
-        <meta property="og:image" content="https://bruninho12.github.io/Portf-lio-/img/bruno-profile.jpg">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Bruno Souza - Desenvolvedor Web Fullstack">
-        <meta property="og:locale" content="pt_BR">
-
-        <!-- Twitter Card Meta Tags -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Bruno Souza - Desenvolvedor Web Fullstack">
-        <meta name="twitter:description"
-            content="Desenvolvedor Web especializado em sites profissionais, e-commerce e aplicações web. +100 projetos entregues.">
-        <meta name="twitter:image" content="https://bruninho12.github.io/Portf-lio-/img/bruno-profile.jpg">
-        <meta name="twitter:image:alt" content="Bruno Souza - Desenvolvedor Web Fullstack">
-
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="./favicon.ico">
-        <link rel="stylesheet" href="./styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet">
-
-        <!-- Structured Data Schema.org -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Bruno Souza",
-          "jobTitle": "Desenvolvedor Web Fullstack",
-          "url": "https://bruninho12.github.io/Portf-lio-/",
-          "image": "https://bruninho12.github.io/Portf-lio-/img/bruno-profile.jpg",
-          "sameAs": [
-            "https://github.com/bruninho12",
-            "https://www.linkedin.com/in/bruno-costa-49ab67274/",
-            "https://www.instagram.com/bruno_souzajj/"
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Cascavel",
-            "addressRegion": "Paraná",
-            "addressCountry": "BR"
-          },
-          "email": "souzacostabruno009@gmail.com",
-          "telephone": "+5573999629726"
-        }
-        </script>
-    </head>
-
-    <body>
-        <!-- Preloader -->
-        <div class="preloader" id="preloader">
-            <div class="preloader-content">
-                <div class="preloader-logo">Bruno Souza</div>
-                <div class="preloader-text">Carregando portfólio...</div>
-                <div class="preloader-spinner"></div>
-            </div>
+    <main id="conteudo" tabindex="-1">
+      <section class="hero section-shell" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            Bruno Souza · estudante de ADS
+          </p>
+          <h1>
+            Aprendendo a programar com
+            <span class="gradient-text">problemas reais.</span>
+          </h1>
+          <p class="hero-lead">
+            Sou Bruno, estudante de Análise e Desenvolvimento de Sistemas e
+            auxiliar administrativo. Na rotina do trabalho, comecei a perceber
+            tarefas que poderiam ser mais simples e a criar projetos para isso.
+          </p>
+          <p class="hero-support">
+            Quero trabalhar com tecnologia e continuar aprendendo na prática.
+            Aqui compartilho o que já construí e os projetos que estou desenvolvendo.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projetos">
+              Ver meus projetos
+              <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            </a>
+            <a
+              class="button button-ghost"
+              href="https://github.com/bruninho12"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              Cascavel, Paraná
+            </span>
+            <span>
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              Análise e Desenvolvimento de Sistemas · em andamento
+            </span>
+          </div>
         </div>
 
-        <header>
-            <div class="header-top">
-                <h1>Bruno Souza</h1>
-                <div class="header-badges">
-                    <span class="badge-99freelas">✅ Disponível no 99 Freelas</span>
-                    <span class="badge-response">⚡ Resposta em até 2h</span>
-                </div>
-            </div>
-            <p class="hero-subtitle">Desenvolvedor Web Fullstack | Especialista em Sites Profissionais | +100 Projetos
-                Entregues</p>
-            <div class="hero-benefits">
-                <div class="benefit-item">
-                    <i class="fas fa-rocket"></i>
-                    <span>Entrega Rápida (7-15 dias)</span>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Design Responsivo Garantido</span>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-thumbs-up"></i>
-                    <span>Satisfação 100% ou Dinheiro de Volta</span>
-                </div>
-            </div>
-            <div class="hero-cta">
-                <a href="#contato" class="btn-primary-large">💬 Solicitar Orçamento Grátis</a>
-                <a href="#projetos" class="btn-secondary">🎯 Ver Projetos Realizados</a>
-            </div>
-        </header>
-
-        <nav>
-            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-overlay" id="navOverlay"></div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#sobre">Sobre Mim</a>
-                <a href="#habilidades">Serviços</a>
-                <a href="#projetos">Portfólio</a>
-                <a href="#orcamento">Orçamento</a>
-                <a href="#depoimentos">Avaliações</a>
-                <a href="#contato" class="nav-cta">💬 Contato</a>
-            </div>
-        </nav>
-
-        <section id="sobre" class="watermark" data-aos="fade-up">
-            <h2 class="no-select">Por que escolher meus serviços?</h2>
-
-            <!-- Seção com foto pessoal -->
-            <div class="about-intro" data-aos="fade-up" data-aos-delay="100">
-                <div class="profile-photo image-protection">
-                    <img src="data:image/svg+xml,%3Csvg width='180' height='180' fill='%23333'%3E%3Ctext x='90' y='90' text-anchor='middle' fill='%2300ccff'%3ECarregando...%3C/text%3E%3C/svg%3E"
-                        data-src="./img/bruno-profile.jpg" alt="Bruno Souza - Desenvolvedor Web"
-                        class="profile-img lazy-load protected-image">
-                    <div class="profile-badge">
-                        <i class="fas fa-code"></i>
-                        <span>Desenvolvedor</span>
-                    </div>
-                </div>
-                <div class="intro-text">
-                    <h3 class="no-select">Olá! Eu sou o Bruno 👋</h3>
-                    <p class="intro-subtitle">Desenvolvedor Web Fullstack apaixonado por criar soluções digitais que
-                        transformam negócios</p>
-                </div>
-            </div>
-
-            <div class="about-container">
-                <div class="about-content" data-aos="fade-right">
-                    <p>🚀 <strong>Resultados que Geram Vendas:</strong> Desenvolvo sites que não são apenas bonitos, mas
-                        que convertem visitantes em clientes. Cada projeto é estrategicamente pensado para aumentar suas
-                        vendas e fortalecer sua marca no mercado digital.</p>
-
-                    <p>⚡ <strong>Entrega Garantida no Prazo:</strong> Trabalho com cronogramas realistas e nunca falho
-                        com prazos. Seu projeto estará pronto quando prometido, sem desculpas nem enrolação. Mais de 5
-                        anos de experiência me ensinaram a ser pontual e eficiente.</p>
-
-                    <p>🏆 <strong>Suporte Completo Pós-Entrega:</strong> Você não fica abandonado após a entrega.
-                        Ofereço 30 dias de suporte gratuito para ajustes e dúvidas. Seu sucesso é meu sucesso!</p>
-
-                    <div class="about-values">
-                        <div class="value-item">
-                            <i class="fas fa-code"></i>
-                            <h4>Código Profissional</h4>
-                            <p>Sites rápidos, seguros e otimizados para Google</p>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h4>100% Responsivo</h4>
-                            <p>Perfeito em celular, tablet e desktop</p>
-                        </div>
-                        <div class="value-item">
-                            <i class="fas fa-rocket"></i>
-                            <h4>Entrega Rápida</h4>
-                            <p>Projetos concluídos em 7 a 15 dias úteis</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-stats" data-aos="fade-left">
-                    <div class="stat">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label">Clientes Satisfeitos</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Anos de Experiência</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">⭐ 4.9</span>
-                        <span class="stat-label">Avaliação Média</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">30</span>
-                        <span class="stat-label">Dias de Garantia</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="habilidades" data-aos="fade-up">
-            <h2>Serviços que Ofereço</h2>
-            <p class="section-desc">Soluções completas para sua presença digital. Do planejamento à entrega, cuidamos de
-                tudo!</p>
-            <div class="services-container">
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Sites Profissionais</h3>
-                    <p><strong>💰 A partir de R$ 800</strong><br>
-                        Sites institucionais, landing pages e portfólios. Design moderno, responsivo e otimizado para
-                        conversão. Ideal para empresas, profissionais liberais e negócios locais.</p>
-                    <div class="service-features">
-                        <span>✅ Design Responsivo</span>
-                        <span>✅ SEO Básico</span>
-                        <span>✅ Formulário de Contato</span>
-                    </div>
-                </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>Lojas Virtuais</h3>
-                    <p><strong>💰 A partir de R$ 1.500</strong><br>
-                        E-commerce completo com WordPress + WooCommerce ou plataformas customizadas. Integração com
-                        meios de pagamento e gestão de produtos.</p>
-                    <div class="service-features">
-                        <span>✅ Catálogo de Produtos</span>
-                        <span>✅ Pagamento Online</span>
-                        <span>✅ Painel Administrativo</span>
-                    </div>
-                </div>
-                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fas fa-tools"></i>
-                    <h3>Manutenção & Suporte</h3>
-                    <p><strong>💰 A partir de R$ 200/mês</strong><br>
-                        Mantenha seu site sempre atualizado, seguro e funcionando perfeitamente. Backup, atualizações e
-                        correções inclusas.</p>
-                    <div class="service-features">
-                        <span>✅ Backup Automático</span>
-                        <span>✅ Atualizações</span>
-                        <span>✅ Suporte Prioritário</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projetos" class="watermark" data-aos="fade-up">
-            <h2 class="no-select">Meus Projetos</h2>
-            <div class="projects-container">
-                <div class="project" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-content">
-                        <h3 class="no-select">Website - Italo Passos Advocacia</h3>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <p>Desenvolvi o site italopassos.com para Italo Passos, um profissional que atua na
-                            área de advocacia. O objetivo era criar uma presença digital moderna e profissional, que
-                            transmitisse confiança e credibilidade aos clientes. Implementei o site utilizando HTML5,
-                            CSS3 e JavaScript com foco em
-                            responsividade e usabilidade. O layout é limpo e intuitivo, facilitando a navegação e o
-                            acesso às
-                            informações relevantes sobre os serviços oferecidos.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://italopassos.com/" target="_blank" rel="noopener noreferrer"
-                                class="btn-primary">
-                                <i class="fas fa-globe"></i> Ver Site
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-image image-protection">
-                        <img class="img-project lazy-load protected-image"
-                            src="data:image/svg+xml,%3Csvg width='500' height='300' fill='%23333'%3E%3Ctext x='250' y='150' text-anchor='middle' fill='%2300ccff'%3ECarregando projeto...%3C/text%3E%3C/svg%3E"
-                            data-src="./img/site-advogado.png" alt="Website do Italo Passos, advogado" />
-                    </div>
-                </div>
-
-                <div class="project" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-content">
-                        <h3 class="no-select">Website - Proendo Odontologia & Estética</h3>
-                        <div class="project-tags">
-                            <span class="tag">WordPress</span>
-                            <span class="tag">SEO</span>
-                            <span class="tag">Responsivo</span>
-                        </div>
-                        <p>Desenvolvi este site para a clínica Proendo Odontologia & Estética, localizada em
-                            Itabuna/BA. O
-                            objetivo era criar uma presença digital moderna, profissional e acessível para pacientes que
-                            buscassem tratamentos odontológicos de qualidade. Implementei o projeto em WordPress, com
-                            foco em responsividade, SEO básico e facilidade de atualização pelo cliente. O site
-                            apresenta os
-                            serviços oferecidos, informações sobre o profissional responsável, depoimentos de pacientes
-                            e
-                            formas de contato e agendamento de consultas.</p>
-                        <div class="project-links">
-                            <a href="https://proendoodontologia.com/" target="_blank" rel="noopener noreferrer"
-                                class="btn-primary">
-                                <i class="fas fa-globe"></i> Ver Site
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-image">
-                        <img class="img-project lazy-load"
-                            src="data:image/svg+xml,%3Csvg width='500' height='300' fill='%23333'%3E%3Ctext x='250' y='150' text-anchor='middle' fill='%2300ccff'%3ECarregando projeto...%3C/text%3E%3C/svg%3E"
-                            data-src="./img/site-dentista.png"
-                            alt="Website da clínica Proendo Odontologia & Estética" />
-                    </div>
-                </div>
-
-                <div class="project" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-content">
-                        <h3>Designs Responsivos para Dispositivos Móveis</h3>
-                        <div class="project-tags">
-                            <span class="tag">Responsivo</span>
-                            <span class="tag">UX/UI</span>
-                            <span class="tag">Mobile First</span>
-                        </div>
-                        <p>Todos os meus projetos são desenvolvidos com o conceito de design responsivo, garantindo
-                            uma experiência
-                            perfeita em qualquer dispositivo. Abaixo estão exemplos de como os sites que desenvolvi se
-                            adaptam
-                            perfeitamente
-                            a smartphones e tablets, mantendo a mesma qualidade visual e usabilidade da versão desktop.
-                        </p>
-                        <div class="project-links">
-                            <a href="#contato" class="btn-primary">
-                                <i class="fas fa-envelope"></i> Solicite um Orçamento
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-mobile-images">
-                        <img class="img-mobile lazy-load"
-                            src="data:image/svg+xml,%3Csvg width='250' height='400' viewBox='0 0 250 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='250' height='400' fill='%23333'/%3E%3Ctext x='125' y='200' text-anchor='middle' dy='0.3em' fill='%2300ccff' font-family='Arial, sans-serif' font-size='12px'%3ECarregando...%3C/text%3E%3C/svg%3E"
-                            data-src="./img/site-advogado-phone.png" alt="Versão móvel do site Italo Passos" />
-                        <img class="img-mobile lazy-load"
-                            src="data:image/svg+xml,%3Csvg width='250' height='400' viewBox='0 0 250 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='250' height='400' fill='%23333'/%3E%3Ctext x='125' y='200' text-anchor='middle' dy='0.3em' fill='%2300ccff' font-family='Arial, sans-serif' font-size='12px'%3ECarregando...%3C/text%3E%3C/svg%3E"
-                            data-src="./img/site-dentista-ipad.png" alt="Versão móvel do site Proendo Odontologia" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Orçamento Instantâneo -->
-        <section id="orcamento" data-aos="fade-up">
-            <h2>🚀 Orçamento Instantâneo</h2>
-            <p class="section-desc">Descubra quanto custa seu projeto em segundos! Preços transparentes e sem surpresas.
-            </p>
-
-            <div class="budget-container">
-                <div class="budget-options">
-                    <div class="budget-option" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="budget-header">
-                            <h3>Site Institucional</h3>
-                            <div class="budget-price">
-                                <span class="price-from">A partir de</span>
-                                <span class="price-value">R$ 800</span>
-                            </div>
-                        </div>
-                        <div class="budget-features">
-                            <p>✅ Até 5 páginas</p>
-                            <p>✅ Design responsivo</p>
-                            <p>✅ Formulário de contato</p>
-                            <p>✅ SEO básico</p>
-                            <p>✅ 30 dias de suporte</p>
-                        </div>
-                        <div class="budget-delivery">
-                            <span>📅 Entrega: 7-10 dias úteis</span>
-                        </div>
-                        <a href="#contato" class="btn-budget">Solicitar Orçamento</a>
-                    </div>
-
-                    <div class="budget-option featured" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="budget-badge">🔥 Mais Escolhido</div>
-                        <div class="budget-header">
-                            <h3>Site Completo</h3>
-                            <div class="budget-price">
-                                <span class="price-from">A partir de</span>
-                                <span class="price-value">R$ 1.200</span>
-                            </div>
-                        </div>
-                        <div class="budget-features">
-                            <p>✅ Até 10 páginas</p>
-                            <p>✅ Design personalizado</p>
-                            <p>✅ Blog integrado</p>
-                            <p>✅ SEO avançado</p>
-                            <p>✅ Google Analytics</p>
-                            <p>✅ 60 dias de suporte</p>
-                        </div>
-                        <div class="budget-delivery">
-                            <span>📅 Entrega: 10-15 dias úteis</span>
-                        </div>
-                        <a href="#contato" class="btn-budget">Solicitar Orçamento</a>
-                    </div>
-
-                    <div class="budget-option" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="budget-header">
-                            <h3>Loja Virtual</h3>
-                            <div class="budget-price">
-                                <span class="price-from">A partir de</span>
-                                <span class="price-value">R$ 1.800</span>
-                            </div>
-                        </div>
-                        <div class="budget-features">
-                            <p>✅ E-commerce completo</p>
-                            <p>✅ Catálogo de produtos</p>
-                            <p>✅ Pagamento online</p>
-                            <p>✅ Painel administrativo</p>
-                            <p>✅ Certificado SSL</p>
-                            <p>✅ 90 dias de suporte</p>
-                        </div>
-                        <div class="budget-delivery">
-                            <span>📅 Entrega: 15-20 dias úteis</span>
-                        </div>
-                        <a href="#contato" class="btn-budget">Solicitar Orçamento</a>
-                    </div>
-                </div>
-
-                <div class="budget-note" data-aos="fade-up">
-                    <p><strong>💡 Importante:</strong> Os valores podem variar conforme a complexidade e requisitos
-                        específicos do seu projeto.
-                        Entre em contato para um orçamento personalizado e mais detalhado!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Depoimentos -->
-        <section id="depoimentos" data-aos="fade-up">
-            <h2>⭐ O que meus clientes dizem</h2>
-            <p class="section-desc">Veja os depoimentos de quem já contratou meus serviços e teve resultados incríveis!
-            </p>
-
-            <div class="testimonials-container">
-                <div class="testimonial" data-aos="fade-right" data-aos-delay="100">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Excelente profissional! Entregou meu site no prazo prometido e ficou exatamente como eu
-                            queria. Muito atencioso e comunicativo durante todo o processo."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>Maria Silva</strong>
-                        <span>Advogada - São Paulo</span>
-                    </div>
-                </div>
-
-                <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Meu site ficou lindo e responsivo! O Bruno entende muito de SEO e meu site já aparece no
-                            Google. Recomendo para todos que querem qualidade."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>João Santos</strong>
-                        <span>Dentista - Rio de Janeiro</span>
-                    </div>
-                </div>
-
-                <div class="testimonial" data-aos="fade-left" data-aos-delay="300">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Contratei para fazer minha loja virtual e foi a melhor decisão! Minhas vendas online
-                            triplicaram. Suporte excelente e sempre disponível."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <strong>Ana Costa</strong>
-                        <span>Empreendedora - Minas Gerais</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonials-stats" data-aos="fade-up">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">⭐ 4.9</span>
-                        <span class="stat-label">Avaliação Média</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Projetos Entregues</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Clientes Recorrentes</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato" data-aos="fade-up">
-            <h2>💬 Vamos começar seu projeto?</h2>
-            <p class="section-desc">Entre em contato agora e receba uma proposta personalizada em até 2 horas!
-                Sem compromisso e totalmente gratuito.</p>
-
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Localização</h3>
-                            <p>Cascavel, Paraná - Brasil</p>
-                            <small>🌐 Atendo todo o Brasil remotamente</small>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>WhatsApp</h3>
-                            <p>+55 (73) 9 9962-9726</p>
-                            <small>⚡ Resposta rápida garantida</small>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>E-mail</h3>
-                            <p>souzacostabruno009@gmail.com</p>
-                            <small>📧 Orçamentos por e-mail</small>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-calendar-check"></i>
-                        <div>
-                            <h3>Disponibilidade</h3>
-                            <p>Segunda a Sábado - 8h às 18h</p>
-                            <small>🔥 Vagas limitadas por mês</small>
-                        </div>
-                    </div>
-
-                    <div class="contact-guarantee">
-                        <h4>🛡️ Garantias que oferecemos:</h4>
-                        <ul>
-                            <li>✅ Resposta em até 2 horas</li>
-                            <li>✅ Orçamento gratuito e sem compromisso</li>
-                            <li>✅ 30 dias de suporte pós-entrega</li>
-                            <li>✅ Satisfação garantida ou dinheiro de volta</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <form class="contact-form" data-aos="fade-left" aria-label="Formulário de contato" method="POST"
-                    action="https://formsubmit.co/souzacostabruno009@gmail.com" data-netlify="true"
-                    data-netlify-honeypot="bot-field" name="contact">
-                    <!-- Honeypot field for spam protection -->
-                    <input type="hidden" name="bot-field">
-                    <!-- Additional spam protection -->
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                    <!-- Hidden field for form name -->
-                    <input type="hidden" name="form-name" value="contact">
-                    <!-- FormSubmit configuration -->
-                    <input type="hidden" name="_subject" value="Nova solicitação de orçamento - Portfolio Bruno Souza">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://bruninho12.github.io/Portf-lio-/">
-                    <!-- Security timestamp -->
-                    <input type="hidden" name="_timestamp" id="form-timestamp">
-
-                    <h3>📝 Solicite seu orçamento gratuito</h3>
-
-                    <div class="form-group">
-                        <label for="nome">Nome completo *</label>
-                        <input id="nome" name="nome" type="text" placeholder="Seu nome completo" required
-                            aria-required="true" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input id="email" name="email" type="email" placeholder="Seu melhor e-mail" required
-                            aria-required="true" />
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone">WhatsApp</label>
-                        <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" />
-                    </div>
-                    <div class="form-group">
-                        <label for="tipo-projeto">Tipo de projeto *</label>
-                        <select id="tipo-projeto" name="tipo-projeto" required>
-                            <option value="">Selecione o tipo de projeto</option>
-                            <option value="site-institucional">Site Institucional (R$ 800+)</option>
-                            <option value="site-completo">Site Completo com Blog (R$ 1.200+)</option>
-                            <option value="loja-virtual">Loja Virtual/E-commerce (R$ 1.800+)</option>
-                            <option value="manutencao">Manutenção de Site Existente</option>
-                            <option value="outro">Outro (descreva abaixo)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="prazo">Prazo desejado</label>
-                        <select id="prazo" name="prazo">
-                            <option value="">Selecione o prazo</option>
-                            <option value="urgente">Urgente (até 7 dias) - +50%</option>
-                            <option value="normal">Normal (7-15 dias)</option>
-                            <option value="flexivel">Flexível (+15 dias)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="projeto">Descreva seu projeto *</label>
-                        <textarea id="projeto" name="projeto" rows="5"
-                            placeholder="Conte mais sobre seu negócio, o que você precisa, inspirações, funcionalidades específicas, etc."
-                            required aria-required="true"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <span class="btn-text">
-                            <i class="fas fa-paper-plane"></i> 🚀 Receber Orçamento Gratuito
-                        </span>
-                        <span class="btn-loading" style="display: none;">
-                            <i class="fas fa-spinner fa-spin"></i> Enviando...
-                        </span>
-                    </button>
-                    <p class="form-note">📧 Você receberá uma resposta detalhada em até 2 horas!</p>
-                </form>
-            </div>
-        </section>
-
-        <footer>
-            <div class="footer-container">
-                <div class="footer-about">
-                    <h3>Bruno Souza</h3>
-                    <p>Desenvolvedor Web Fullstack apaixonado por criar experiências digitais inovadoras e eficientes.
-                        Sempre em busca de novos desafios e oportunidades para aplicar e expandir meus conhecimentos.
-                    </p>
-                </div>
-
-                <div class="footer-links">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#sobre">Sobre Mim</a></li>
-                        <li><a href="#habilidades">Habilidades</a></li>
-                        <li><a href="#projetos">Projetos</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-social">
-                    <h3>Conecte-se Comigo</h3>
-                    <div class="social-links" aria-label="Redes sociais">
-                        <a href="https://github.com/bruninho12" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/bruno-costa-49ab67274/" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/bruno_souzajj/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Bruno Souza | Desenvolvedor Web | Todos os direitos reservados</p>
-
-                <div class="footer-copyright">
-                    <p><strong><i class="fas fa-shield-alt"></i> AVISO DE DIREITOS AUTORAIS</strong></p>
-                    <p>Este portfólio e todo seu conteúdo (incluindo, mas não limitado a: design, código, imagens,
-                        textos e conceitos) são propriedade exclusiva de <strong>Bruno Souza</strong> e estão protegidos
-                        por leis de direitos autorais.</p>
-                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Cópia, reprodução ou uso não
-                            autorizado</strong> deste conteúdo pode resultar em ação legal. Para licenciamento ou
-                        permissões, entre em contato: <strong>souzacostabruno009@gmail.com</strong></p>
-                    <p><i class="fas fa-code"></i> Desenvolvido com <i class="fas fa-heart" style="color: #ff6b35;"></i>
-                        por Bruno Souza</p>
-                </div>
-            </div>
-        </footer>
-
-        <a href="#" id="back-to-top" aria-label="Voltar ao topo">
-            <i class="fas fa-arrow-up"></i>
+        <div class="hero-visual" aria-label="Foto de Bruno Souza">
+          <div class="visual-grid" aria-hidden="true"></div>
+          <div class="profile-frame">
+            <img
+              src="./img/bruno-profile.jpg"
+              alt="Bruno Souza"
+              class="profile-photo"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <div class="floating-card card-code" aria-hidden="true">
+            <span class="mini-label">MEU JEITO</span>
+            <strong>Aprender</strong>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="floating-card card-build" aria-hidden="true">
+            <span class="mini-label">NA PRÁTICA</span>
+            <strong>Experimentar</strong>
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div class="visual-caption">
+            <span class="caption-line" aria-hidden="true"></span>
+            <span>Cascavel, Paraná.</span>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#sobre" aria-label="Rolar para sobre mim">
+          <span aria-hidden="true"></span> ROLE PARA EXPLORAR
         </a>
+      </section>
 
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="./script.js"></script>
-    </body>
+      <section class="section-shell section-block" id="sobre">
+        <div class="section-heading">
+          <span class="section-index">01 / SOBRE</span>
+          <h2>Como cheguei até <span class="gradient-text">aqui.</span></h2>
+        </div>
+        <div class="about-layout">
+          <div class="about-main">
+            <p class="large-copy">
+              Meu primeiro contato com código foi abrindo o F12 no navegador.
+            </p>
+            <p>
+              Quando era mais novo, eu copiava trechos de código e achava que
+              tinha feito um site. Ainda não entendia como aquilo funcionava,
+              mas queria descobrir. Minha irmã já trabalhava na área e as
+              conversas com ela aumentaram essa vontade.
+            </p>
+            <p>
+              Hoje curso Análise e Desenvolvimento de Sistemas na UNIPAR.
+              Entre a faculdade e o trabalho, estudo programação e tento
+              aplicar o que aprendo em projetos próprios.
+            </p>
+            <p>
+              Comecei como jovem aprendiz na logística e fui efetivado como
+              auxiliar administrativo. Foi observando essa rotina que surgiram
+              o sistema de despesas de frotas e a ideia do Ticket PDV.
+            </p>
+          </div>
+          <aside class="about-aside">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <p>
+              Gosto de entender como as coisas funcionam. Quando vejo uma
+              tarefa repetitiva, fico pensando em como poderia facilitar.
+            </p>
+            <span>— Bruno Souza</span>
+            <div class="about-facts">
+              <div>
+                <span class="fact-number">01</span>
+                <span>ADS em andamento</span>
+              </div>
+              <div>
+                <span class="fact-number">02</span>
+                <span>Da aprendizagem na logística à efetivação</span>
+              </div>
+              <div>
+                <span class="fact-number">03</span>
+                <span>Projetos a partir de situações do dia a dia</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
 
+      <section
+        class="section-shell section-block projects-section"
+        id="projetos"
+      >
+        <div class="section-heading">
+          <span class="section-index">02 / PROJETOS</span>
+          <h2>Meus <span class="gradient-text">projetos.</span></h2>
+          <p class="section-intro">
+            Dois nasceram de situações do trabalho. O terceiro, do meu gosto
+            por filmes e séries. Cada um tem me ensinado uma parte do desenvolvimento.
+          </p>
+        </div>
+
+        <article class="project-card project-featured">
+          <a
+            class="project-visual fleet-visual"
+            href="https://calculos-despesas-frotas.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir o projeto de despesas de frotas em outra aba"
+          >
+            <img
+              class="project-screenshot"
+              src="./img/sistema-gestao-frotas.png"
+              alt="Tela inicial do sistema de gestão de frotas, com seleção das planilhas de custos e relação de frotas para processamento."
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="visual-note">TELA DO SISTEMA · CLIQUE PARA ACESSAR</span>
+          </a>
+          <div class="project-info">
+            <div class="project-topline">
+              <span class="project-number">PROJETO 01</span>
+              <span class="project-status status-applied">
+                Já utilizado na operação
+              </span>
+            </div>
+            <h3>Despesas de Frotas</h3>
+            <p class="project-summary">
+              Criei esta aplicação para processar planilhas e facilitar a
+              consulta de despesas por veículo, a partir de uma dificuldade
+              que observei na logística.
+            </p>
+            <div class="project-story">
+              <h4>O problema</h4>
+              <p>
+                A consulta dos custos da frota gerava retrabalho e dificultava
+                encontrar as despesas de cada veículo.
+              </p>
+              <h4>O que fiz</h4>
+              <p>
+                Estudei o processo, desenvolvi a ferramenta por iniciativa
+                própria e apresentei ao meu encarregado. A proposta foi bem
+                recebida e o sistema foi utilizado na operação por um período.
+              </p>
+            </div>
+            <div class="tech-list">
+              <span>Processamento de planilhas</span>
+              <span>Custos por veículo</span>
+              <span>Aplicação web</span>
+            </div>
+            <div class="project-actions">
+              <a
+                class="button button-primary"
+                href="https://calculos-despesas-frotas.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acessar projeto
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                <span class="sr-only">(abre em outra aba)</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card project-reverse">
+          <div class="project-visual pdv-visual">
+            <div class="tablet-frame" aria-hidden="true">
+              <div class="tablet-screen">
+                <div class="pdv-head">
+                  <span>REFEIÇÕES</span>
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+                <div class="pdv-welcome">Olá! O que vamos registrar?</div>
+                <div class="pdv-items">
+                  <div>
+                    <i class="fa-solid fa-utensils"></i>
+                    <b>Refeição</b>
+                    <small>1 unidade</small>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-ticket"></i>
+                    <b>Vale-refeição</b>
+                    <small>R$ 20,00</small>
+                  </div>
+                </div>
+                <div class="pdv-action">
+                  Registrar pedido
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+            <span class="visual-note">
+              CONCEITO VISUAL · PROJETO EM DESENVOLVIMENTO
+            </span>
+          </div>
+          <div class="project-info">
+            <div class="project-topline">
+              <span class="project-number">PROJETO 02</span>
+              <span class="project-status status-building">Em desenvolvimento</span>
+            </div>
+            <h3>Ticket PDV</h3>
+            <p class="project-summary">
+              Um projeto para digitalizar o registro e o controle da
+              distribuição de refeições aos motoristas.
+            </p>
+            <div class="project-story">
+              <h4>O contexto</h4>
+              <p>
+                Trabalhando na balança, acompanho a rotina da operação.
+                A distribuição de refeições me deu a ideia de criar uma
+                ferramenta para apoiar esse registro.
+              </p>
+              <h4>O que estou desenvolvendo</h4>
+              <p>
+                Estou trabalhando na interface e nos fluxos de registro,
+                estudando a integração entre React, uma API em .NET e o
+                banco de dados. O projeto ainda não foi implantado.
+              </p>
+            </div>
+            <div class="tech-list">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>ASP.NET Core / .NET 8</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual cleanron-visual">
+            <div class="streaming-window" aria-hidden="true">
+              <div class="streaming-nav">
+                <span class="stream-logo">clean<span>ron</span></span>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="stream-feature">
+                <small>MINHA BIBLIOTECA</small>
+                <b>Descubra o que assistir.</b>
+                <span>Filmes e séries em um só lugar.</span>
+              </div>
+              <div class="stream-shelves">
+                <i></i><i></i><i></i><i></i>
+              </div>
+            </div>
+            <span class="visual-note">
+              CONCEITO VISUAL · PROJETO EM EVOLUÇÃO
+            </span>
+          </div>
+          <div class="project-info">
+            <div class="project-topline">
+              <span class="project-number">PROJETO 03</span>
+              <span class="project-status status-building">Em desenvolvimento</span>
+            </div>
+            <h3>Cleanron</h3>
+            <p class="project-summary">
+              Um catálogo pessoal de filmes e séries que estou construindo
+              para estudar desenvolvimento full stack.
+            </p>
+            <div class="project-story">
+              <h4>De onde veio a ideia</h4>
+              <p>
+                Gosto de filmes e séries e fiquei curioso sobre como essas
+                plataformas organizam seus catálogos. Resolvi criar o meu
+                para entender melhor como tudo se conecta.
+              </p>
+              <h4>O que estou estudando</h4>
+              <p>
+                Estou desenvolvendo a interface e estudando como buscar
+                informações em uma API externa e organizar os dados com
+                .NET, Entity Framework Core e PostgreSQL.
+              </p>
+            </div>
+            <div class="tech-list">
+              <span>React</span>
+              <span>ASP.NET Core / .NET 10</span>
+              <span>PostgreSQL</span>
+              <span>Entity Framework Core</span>
+              <span>API externa</span>
+            </div>
+          </div>
+        </article>
+        <p class="projects-note">
+          Os projetos ligados à minha rotina de trabalho são iniciativas pessoais.
+          As imagens do Ticket PDV e do Cleanron são conceitos visuais.
+        </p>
+      </section>
+
+      <section
+        class="section-shell section-block skills-section"
+        id="aprendizado"
+      >
+        <div class="section-heading">
+          <span class="section-index">03 / APRENDIZADO</span>
+          <h2>O que estou <span class="gradient-text">aprendendo.</span></h2>
+          <p class="section-intro">
+            Estas são as tecnologias e ferramentas que tenho estudado na
+            faculdade e nos meus projetos, com níveis diferentes de experiência.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-panel">
+            <div class="skill-icon">
+              <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+            </div>
+            <h3>Desenvolvimento</h3>
+            <p>Da interface ao banco de dados, aprendendo a conectar as partes.</p>
+            <div class="skill-chips">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>C#</span>
+              <span>ASP.NET Core</span>
+              <span>SQL</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+          <div class="skill-panel">
+            <div class="skill-icon">
+              <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            </div>
+            <h3>Ferramentas e práticas</h3>
+            <p>Ferramentas que uso para estudar, organizar e publicar meus projetos.</p>
+            <div class="skill-chips">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>VS Code</span>
+              <span>Excel</span>
+              <span>GitHub Pages</span>
+            </div>
+          </div>
+          <div class="skill-panel skill-panel-highlight">
+            <div class="skill-icon">
+              <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            </div>
+            <h3>Inteligência artificial</h3>
+            <p>
+              Uso IA como apoio aos estudos e ao desenvolvimento. Quero
+              aprofundar esse aprendizado e tenho interesse na oportunidade
+              de AI Builder do iFood.
+            </p>
+            <div class="learning-list">
+              <span>
+                <i class="fa-regular fa-circle-check" aria-hidden="true"></i>
+                Apoio para estudar e desenvolver projetos
+              </span>
+              <span>
+                <i class="fa-regular fa-compass" aria-hidden="true"></i>
+                Escrita de prompts — em estudo
+              </span>
+              <span>
+                <i class="fa-regular fa-compass" aria-hidden="true"></i>
+                Agentes e automações — quero aprofundar
+              </span>
+              <span>
+                <i class="fa-regular fa-compass" aria-hidden="true"></i>
+                Integrações com APIs de IA — próximo passo
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell section-block journey-section" id="trajetoria">
+        <div class="section-heading">
+          <span class="section-index">04 / TRAJETÓRIA</span>
+          <h2>Meu caminho até <span class="gradient-text">aqui.</span></h2>
+        </div>
+        <div class="journey-grid">
+          <div class="journey-item">
+            <span class="journey-marker" aria-hidden="true">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <div>
+              <span class="journey-label">ESTUDOS</span>
+              <h3>Análise e Desenvolvimento de Sistemas</h3>
+              <p>
+                Graduação em andamento na UNIPAR. Estou construindo meus
+                fundamentos de programação, lógica e desenvolvimento de
+                sistemas.
+              </p>
+            </div>
+          </div>
+          <div class="journey-item">
+            <span class="journey-marker" aria-hidden="true">
+              <i class="fa-solid fa-boxes-stacked"></i>
+            </span>
+            <div>
+              <span class="journey-label">EXPERIÊNCIA ATUAL</span>
+              <h3>Auxiliar administrativo</h3>
+              <p>
+                Comecei como jovem aprendiz na logística e hoje trabalho na
+                balança. Essa experiência me ajuda a enxergar os processos
+                de perto e pensar em ferramentas para o dia a dia.
+              </p>
+            </div>
+          </div>
+          <div class="journey-item">
+            <span class="journey-marker" aria-hidden="true">
+              <i class="fa-solid fa-lightbulb"></i>
+            </span>
+            <div>
+              <span class="journey-label">PRÓXIMO PASSO</span>
+              <h3>Aprender construindo com tecnologia e IA</h3>
+              <p>
+                Busco minha primeira oportunidade em tecnologia para
+                contribuir com uma equipe, evoluir meus projetos e aprender
+                com quem já trabalha na área.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contato">
+        <div class="section-shell contact-inner">
+          <div>
+            <span class="section-index">05 / CONTATO</span>
+            <h2>Vamos conversar?</h2>
+            <p>
+              Se quiser conversar sobre um projeto ou uma oportunidade em
+              tecnologia, pode me chamar por e-mail ou pelo LinkedIn.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a
+              class="button button-primary"
+              href="mailto:souzacostabruno007@gmail.com"
+            >
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              E-mail
+            </a>
+            <a
+              class="button button-ghost"
+              href="https://www.linkedin.com/in/bruno-souza-49ab67274/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+            <a
+              class="button button-ghost"
+              href="https://github.com/bruninho12"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-shell footer-inner">
+        <a class="brand" href="#inicio" aria-label="Voltar ao início">
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <span>bruno<span class="brand-muted">.souza</span></span>
+        </a>
+        <p>Feito por Bruno Souza, entre o trabalho e os estudos.</p>
+        <span>© <span id="currentYear"></span> Bruno Souza</span>
+      </div>
+    </footer>
+  </body>
 </html>
